@@ -12,6 +12,10 @@ export default function Loggin() {
         .then((result) => {
             setGetmEMBER(result.data)
         })
+        .catch(() =>{
+            console.log('error');
+            
+        })
 
     const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setGet(e.target.value)
