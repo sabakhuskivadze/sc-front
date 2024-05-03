@@ -8,14 +8,14 @@ export default function Loggin() {
     const [get, setGet] = useState('')
     const [get1, setGet1] = useState('')
     const [messageApi, contextHolder] = message.useMessage();
-    // axios.get('http://localhost:3001/Login')
-    //     .then((result) => {
-    //         setGetmEMBER(result.data)
-    //     })
-    //     .catch(() =>{
-    //         console.log('error');
+    axios.get('http://localhost:3001/Login')
+        .then((result) => {
+            setGetmEMBER(result.data)
+        })
+        .catch(() =>{
+            console.log('error');
             
-    //     })
+        })
 
     const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setGet(e.target.value)
@@ -48,7 +48,7 @@ export default function Loggin() {
             });
         }
     };
- ""
+ 
 
 
     return (
