@@ -1,0 +1,94 @@
+.card{
+    max-width: 685px;
+    height: 938px;
+    margin: auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 24px;
+}
+
+.card h2{
+    color: rgba(252, 106, 0, 1);
+    font-size: 24px;
+    font-family: Noto Sans Georgian;
+}
+
+.loginCard{
+    max-width: 501px;
+    margin: auto;
+    position: relative;
+    top: 128px;
+}
+
+.input p{
+    color: rgba(0, 0, 0, 1);
+    font-family: Noto Sans Georgian ;
+    font-size: 14px;
+    text-align: left;
+    position: relative;
+    top: 8px;
+}
+
+
+.inputS{
+    border: none;
+    outline: none;
+    background-color: rgba(248, 248, 248, 1);
+    border: 1px solid rgba(230, 230, 230, 1);
+    width: 501px;
+    height: 49px;
+    border-radius: 12px;
+}
+
+.loginCrdItem{
+    padding-top: 56px;
+}
+
+.forgetPassword{
+    text-align: right;
+}
+
+.forgetPassword p{
+    color: rgba(252, 106, 0, 1);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn{
+    background-color: rgba(252, 106, 0, 1);
+    width: 501px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    color: #fff;
+    font-family: Noto Sans Georgian;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.card .container{
+    position: relative;
+    top: 32px;
+}
+
+
+.continerGroup{
+    padding-top: 16px;
+}
+
+.socialCard{
+    background: rgba(248, 248, 248, 1);
+    border: 1px solid rgba(230, 230, 230, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    gap: 12px;
+}
+
+.cardGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
