@@ -1,7 +1,11 @@
 "use client"
+import { useState } from 'react';
 import styles from './page.module.css'
 
 export default function Dashboard() {
+    const [show, setShow] = useState(false)
+    const currentDate = new Date();
+    const month = currentDate.toLocaleString('default', { month: 'long',day:'numeric', year:'numeric' });
     return(
         <>
         {/* <head</header>
@@ -9,6 +13,7 @@ export default function Dashboard() {
             
         </div> */}
         
+        <div className={styles.fullPage}>
         <div className={styles.sider}>
             <div className={styles.siderName}>
                 <span>FIRALI</span>
@@ -89,6 +94,25 @@ export default function Dashboard() {
                     
                 </div>
             </div>
+        </div>
+
+
+        <div className={styles.mainContent}>
+            <div className={styles.welcome}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 7.33333H8" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4.99996 2V4" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 2V4" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 14H4C2.89543 14 2 13.1046 2 12V5C2 3.89543 2.89543 3 4 3H12C13.1046 3 14 3.89543 14 5V7.33333" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 10H6" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.04196 10.2191L10.7086 8.8858C11.0738 8.59365 11.5928 8.59365 11.958 8.8858L13.6246 10.2191C13.8619 10.4088 14 10.6962 14 11V13.3333C14 13.7015 13.7015 14 13.3333 14H9.33329C8.9651 14 8.66663 13.7015 8.66663 13.3333V11C8.66663 10.6962 8.80473 10.4088 9.04196 10.2191V10.2191Z" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>{month}</p>
+                
+
+            </div>
+
+        </div>
         </div>
         </>
     )

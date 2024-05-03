@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap');
+
+.fullPage{
+    display: flex;
+}
+
 .sider{
     max-width: 15%;
     background-color: #333333;
@@ -8,7 +13,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
 }
 
 .siderName{
@@ -44,5 +48,18 @@
     padding-left: 10px;
     padding-right: 10px;
     background-color: #4D3A2C;
-    border-radius: 8px;
+    border-radius: 16px;
+}
+
+/* end of Sider */
+
+/* start of main */
+.mainContent{
+    display: flex;
+    padding-top: 60px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+.welcome{
+    display: flex;
 }
