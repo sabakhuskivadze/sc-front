@@ -6,22 +6,22 @@ import { LOGIN } from 'src/interface/interface.login';
 
 @Injectable()
 export class LoginService {
-    constructor(@InjectModel('login') private LoginModel:Model<LOGIN>){}
+    constructor(@InjectModel('login') private LoginModel: Model<LOGIN>) { }
 
-    async GetallMember(){
+    async GetallMember() {
         return await this.LoginModel.find()
     }
 
-    async addMember(loginDto:LoginDto){
+    async addMember(loginDto: LoginDto) {
         const newMember = new this.LoginModel({
-            email:loginDto.email,
-            password:loginDto.password,
-            isAdmin:loginDto.isAdmin
+            email: loginDto.email,
+            password: loginDto.password,
+            isAdmin: loginDto.isAdmin
         })
         return await newMember.save()
     }
-    async getAdmins(loginDto:LoginDto){
-        if(loginDto.isAdmin == true){
+    async getAdmins(loginDto: LoginDto) {
+        if (loginDto.isAdmin == true) {
             return await this.LoginModel.find()
         }
     }
