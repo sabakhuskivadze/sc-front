@@ -98,16 +98,67 @@ export default function Dashboard() {
 
 
         <div className={styles.mainContent}>
-            <div className={styles.welcome}>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 7.33333H8" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M4.99996 2V4" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M11 2V4" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M6 14H4C2.89543 14 2 13.1046 2 12V5C2 3.89543 2.89543 3 4 3H12C13.1046 3 14 3.89543 14 5V7.33333" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M5 10H6" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.04196 10.2191L10.7086 8.8858C11.0738 8.59365 11.5928 8.59365 11.958 8.8858L13.6246 10.2191C13.8619 10.4088 14 10.6962 14 11V13.3333C14 13.7015 13.7015 14 13.3333 14H9.33329C8.9651 14 8.66663 13.7015 8.66663 13.3333V11C8.66663 10.6962 8.80473 10.4088 9.04196 10.2191V10.2191Z" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <p>{month}</p>
+            <div className={styles.mainHeader}>
+                <div className={styles.welcomeLeftPart}>
+                    <div className={styles.welcomeTop}>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 7.33333H8" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4.99996 2V4" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 2V4" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 14H4C2.89543 14 2 13.1046 2 12V5C2 3.89543 2.89543 3 4 3H12C13.1046 3 14 3.89543 14 5V7.33333" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 10H6" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.04196 10.2191L10.7086 8.8858C11.0738 8.59365 11.5928 8.59365 11.958 8.8858L13.6246 10.2191C13.8619 10.4088 14 10.6962 14 11V13.3333C14 13.7015 13.7015 14 13.3333 14H9.33329C8.9651 14 8.66663 13.7015 8.66663 13.3333V11C8.66663 10.6962 8.80473 10.4088 9.04196 10.2191V10.2191Z" stroke="#898989" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p>{month}</p>
+                    </div>
+                    <span className={styles.welcomeName}>მოგესალმებით, <span className={styles.welcomeDif}>გაბრიელ</span></span>
+                </div>
+                <div className={styles.welcomeInfo}>
+                    <div className={styles.rightContainer}>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.55691 1.68699C11.1479 -0.215008 16.4109 1.96599 18.3129 6.55699C20.2149 11.148 18.0339 16.411 13.4429 18.313C8.85191 20.215 3.58891 18.034 1.68691 13.443C-0.214091 8.85199 1.96591 3.58899 6.55691 1.68699" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.71802 5.98499V10.636L13.374 12.865" stroke="#323232" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>ირეკება:<span className={styles.welcomeHour}> 9 საათი</span></span>
+                    </div>
+                    <div className={styles.welcomeCenter}>
+                        <div className={styles.navCon}>
+                            <div className={styles.single}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.70801 18.344V18.709C9.70801 19.974 10.734 21 12 21V21C13.266 21 14.292 19.974 14.292 18.708V18.343" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.833 5.751V4.833C13.833 3.821 13.013 3 12 3V3C10.987 3 10.167 3.821 10.167 4.833V5.751" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.563 10.188V10.188C6.563 7.68501 8.592 5.65701 11.094 5.65701H12.907C15.41 5.65701 17.438 7.68601 17.438 10.188V10.188V12.985C17.438 13.515 17.649 14.024 18.024 14.399L18.665 15.04C19.04 15.415 19.251 15.924 19.251 16.454V16.454C19.251 17.498 18.405 18.344 17.361 18.344H6.64C5.596 18.344 4.75 17.498 4.75 16.454V16.454C4.75 15.924 4.961 15.415 5.336 15.04L5.977 14.399C6.352 14.024 6.563 13.515 6.563 12.985V10.188Z" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>შეტყობინება</span>
+                            </div>
+                            <div className={styles.single}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.666 2.00001C9.279 1.99501 6.156 3.82801 4.509 6.78801C2.862 9.74801 2.951 13.369 4.741 16.244L3 21L7.755 19.259C11.119 21.344 15.433 21.08 18.517 18.599C21.601 16.118 22.784 11.961 21.468 8.22801C20.153 4.49401 16.624 1.99801 12.666 2.00001V2.00001Z" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>ჩათი</span>
+                            </div>
+                            <div className={styles.single}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 13.25V13C12 12.183 12.505 11.74 13.011 11.4C13.505 11.067 14 10.633 14 9.83301C14 8.72801 13.105 7.83301 12 7.83301C10.895 7.83301 10 8.72801 10 9.83301" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M11.999 16C11.861 16 11.749 16.112 11.75 16.25C11.75 16.388 11.862 16.5 12 16.5C12.138 16.5 12.25 16.388 12.25 16.25C12.25 16.112 12.138 16 11.999 16" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>დახმარება</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.user}>
+                        <div className={styles.WelcomeUser}>
+                            <span>შესული როგორც </span>
+                            <span>გაბრიელ კვერღელიძე</span>
+                        </div>
+                        <div className={styles.check}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 10L12 14L16 10" stroke="#808080" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
                 
 
             </div>

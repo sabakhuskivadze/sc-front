@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    justify-content: center;
+    padding-top: 40px;
     align-items: center;
     height: 100vh;
 }
@@ -18,12 +18,14 @@
 .siderName{
     color: #FC6A00;
     letter-spacing: 8px;
+    font-weight: 500;
+    font-size: 24px;
 }
 
 .unitContainer{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 12px;
     justify-content: center;
     align-items: flex-start;
     padding: 12px;
@@ -31,12 +33,16 @@
 
 .siderUnit{
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 5px;
     font-weight: 400;
     font-size: 14px;
     color: #BFBFBF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 200px;
 }
 .siderUnitHome{
     display: flex;
@@ -49,6 +55,7 @@
     padding-right: 10px;
     background-color: #4D3A2C;
     border-radius: 16px;
+    width: 200px;
 }
 
 /* end of Sider */
@@ -56,10 +63,93 @@
 /* start of main */
 .mainContent{
     display: flex;
-    padding-top: 60px;
-    padding-left: 8%;
+    padding-top: 40px;
+    padding-left: 121px;
     padding-right: 8%;
 }
-.welcome{
+
+.mainHeader{
     display: flex;
+    gap: 262px;
+}
+
+.welcomeTop{
+    display: flex;
+    gap: 4px;
+    
+    
+}
+
+.welcomeName{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.welcomeDif{
+    color: #FC6A00;
+}
+
+.rightContainer{
+    width: 188px;
+    height: 56px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcomeHour{
+    color: #FC6A00;
+}
+
+.welcomeInfo{
+    display: flex;
+}
+
+.navCon{
+    display: flex;
+    width: 415px;
+    height: 56px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.single{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.user{
+    display: flex;
+    width: 162px;
+    height: 56px;
+    font-size: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+}
+
+.welcomeUser{
+    display: flex;
+    flex-direction: column;
 }
