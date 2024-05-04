@@ -33,7 +33,7 @@ export default function Loggin() {
             }
         });
     
-        if (isSuccess) {
+        if (!isSuccess) {
             messageApi.open({
                 type: 'success',
                 content: 'თქვენ წარმატებით გაიარეთ!',

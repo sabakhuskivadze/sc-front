@@ -61,6 +61,7 @@
 /* end of Sider */
 
 /* start of main */
+
 .mainContent{
     display: flex;
     padding-top: 40px;
@@ -90,6 +91,11 @@
     color: #FC6A00;
 }
 
+.welcomeCenter{
+    display: flex;
+    gap: 15px;
+}
+
 .rightContainer{
     width: 188px;
     height: 56px;
@@ -109,8 +115,16 @@
     color: #FC6A00;
 }
 
+.welcomeLeftPart{
+    width: 325px;
+}
+
 .welcomeInfo{
     display: flex;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
 }
 
 .navCon{
@@ -147,9 +161,313 @@
     padding-right: 8px;
     border-radius: 12px;
     background-color: #FFFFFF;
+    align-items: center;
+    justify-content: center;
 }
 
 .welcomeUser{
     display: flex;
     flex-direction: column;
+}
+
+.welcomeUserName{
+    color: #808080;
+}
+
+/* end of header */
+
+.basicInfo{
+    display: flex;
+    flex-direction: column;
+    padding-top: 26px;
+    padding-left: 121px;
+}
+
+.pinnedTop{
+    gap: 24px;
+}
+
+.pinned{
+    display: flex;
+    gap: 450px;
+}
+
+.pinnedContent{
+    display: flex;
+    margin-top: 32px;
+    gap: 80px;
+
+}
+
+.pinnedContentSingleTop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 24px, 12px, 24px, 12px;
+    background-color: #FFFFFF;
+    width: 214px;
+    height: 88px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.pinnedRes{
+    color: #FC6A00;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.pinnedTop{
+    display: flex;
+}
+
+.pinnedBottom{
+    display: flex;
+    gap: 24px;
+}
+
+.pinnedContentSingleBottom{
+    display: flex;
+    flex-direction: column;
+    width: 214px;
+    padding: 12px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    align-items: center;
+    gap: 8px;
+}
+
+.pinnedDifLeft{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pinnedDifLeftTop{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pinnedDifBot{
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 6px;
+}
+
+.pinnedDifBot span{
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 500;
+    color: #808080;
+    
+}
+
+.more{
+    display: flex;
+    justify-content: flex-end;
+    color: #808080;
+    font-weight: 500;
+}
+
+.pinnedLeft{
+    display: flex;
+    flex-direction: column;
+    width: 213px;
+    height: 136px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 12px;
+    gap: 12px;
+}
+
+.pinnedLeftTop{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.attendanceContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.attendance{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.userChoices{
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    max-height: 700px;
+    overflow-y: scroll;
+}
+
+.userChoices::-webkit-scrollbar {
+    display: none;
+}
+
+.choiceContent{
+    width: 142.33px;
+    height: 137px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.choiceContent span{
+    text-align: center;
+}
+
+.choiceRow{
+    display: flex;
+    gap: 12px;
+}
+
+.halfChoice{
+    display: flex;
+    justify-content: center;
+    width: 451px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 12px;
+    height: 137px;
+}
+.test{
+    display: flex;
+    font-size: 10px;
+}
+
+.tests{
+    display: flex;
+    font-size: 10px;
+    background-color: #FFE9D9;
+    color: #FC6A00;
+}
+.tableNumerics{
+    background-color: #FC6A00;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.bodyLeft{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    
+}
+
+
+
+.tableTopStartUnit{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    border-top-left-radius: 12px;
+    width:123px;
+    height: 128px;
+    padding: 12px;
+}
+
+.tableTopLastUnit{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    border-top-right-radius: 12px;
+    width:123px;
+    height: 128px;
+    padding: 12px;
+}
+
+.tableBottomStartUnit{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 12px;
+    width:123px;
+    height: 128px;
+    padding: 12px;
+}
+
+.tableBottomEndUnit{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    border-bottom-right-radius: 12px;
+    width:123px;
+    height: 128px;
+    padding: 12px;
+}
+
+.tableBodyUnit{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    width:123px;
+    height: 128px;
+    padding: 12px;
+}
+
+.tableBottomBody{
+    display: flex;
+}
+
+.upperTable{
+    display: flex;
+}
+
+.tableNumeric{
+    text-align: start;
+}
+
+.unitHour{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2F2F2;
+    width: 66px;
+    height: 22px;
+    padding: 3px, 4px, 3px, 4px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    margin-left: 15%;
+}
+
+.placeHolder{
+    background-color: #FFFFFF;
+    padding: 8px, 16px, 8px, 16px;
+    width: 859px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    padding-left: 30px;
 }
