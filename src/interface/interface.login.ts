@@ -3,4 +3,5 @@ export interface LOGIN{
     email:string
     password:string
     isAdmin:boolean
+    token:string
 }
