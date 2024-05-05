@@ -1,70 +1,149 @@
 "use client"
 import axios from "axios"
-import React, { use, useState } from "react"
+import React, { ChangeEvent, use, useState } from "react"
 import styles from './page.module.css'
-import { Button, message, Space } from 'antd';
+import { message } from 'antd';
 import router from "next/router";
-import Item from "antd/es/list/Item";
+import { Alert, Form, Input, Typography } from 'antd';
+import { time } from "console";
+import {
+    RadiusBottomleftOutlined,
+    RadiusBottomrightOutlined,
+    RadiusUpleftOutlined,
+    RadiusUprightOutlined,
+} from '@ant-design/icons';
+import { Button, Divider, notification, Space } from 'antd';
+import type { NotificationArgsProps } from 'antd';
 
-export default function Loggin() {
+
+export default function forgetpassword() {
     const [getMember, setGetmEMBER] = useState([])
     const [get, setGet] = useState('')
     const [get1, setGet1] = useState('')
+    const [pas, setPass] = useState<string | number>('')// vlaue inputis rac iwereba
     const [getName, setGetName] = useState();
-    const [messageApi, contextHolder] = message.useMessage();
- 
-
+    const [otherINp, setOtherInp] = useState<boolean>(false)
+    const [code1, setCode] = useState('')
+    const [messageApi,] = message.useMessage();
+    const [isDisabled, setIsDisabled] = useState<boolean>(false);
+    const [buttonColor, setButtonColor] = useState('');
+    const [time, setTime] = useState(Number)
+    const [api, contextHolder] = notification.useNotification();
     const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setGet(e.target.value)
     }
 
-    const onchange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setGet1(e.target.value)
+
+
+
+
+    const [form] = Form.useForm();
+
+    const [inp1, setInp1] = useState<string>();
+    const [inp2, setInp2] = useState<string>();
+    const [inp3, setInp3] = useState<string>();
+    const send1 = async (e: ChangeEvent<HTMLInputElement>) => {
+        setInp1(e.target.value)
     }
-    axios.get('http://localhost:3001/Login')
-    .then((result) => {
-        setGetmEMBER(result.data)
-        return;
-    })
-    .catch(() =>{
-       return  console.log('error');
-    })
-    
+
+    const send2 = async (e: ChangeEvent<HTMLInputElement>) => {
+        setInp2(e.target.value)
+    }
+
+    const send3 = async (e: ChangeEvent<HTMLInputElement>) => {
+        setInp3(e.target.value)
+    }
+
+
+
+     let first = String(code1)
+const [search,setSearch] = useState<string>()
+
+
+    const changePass = (e: ChangeEvent<HTMLInputElement>) => {
+        console.log(first)
+        console.log(e.target.value);
+        setSearch(e.target.value);
+        if (search == first) {
+            window.open('http://google.com')
+        }
+
+        console.log();
+        
+
+    }
+    let url = 'http://localhost:3001/send-code/' + search
+console.log(url)
+
     const success = () => {
         let isSuccess = false;
+        axios.get('http://localhost:3001/Login')
+            .then((result) => {
+                setGetmEMBER(result.data);
+                return;
+            })
+            .catch(() => {
+                console.log('error');
+            });
+
+            axios.get(url)
+            .then((resCode) => {
+                setCode(resCode.data);
+            })
+            .catch((error) => {
+                // Handle errors here
+                console.error('Error fetching code:', error);
+            });
+        
+
         getMember.forEach(item => {
-            if (get === item.email && get1 === item.password) {
+            if (get === item.email) {
                 isSuccess = true;
                 console.log(item.name);
             }
+            setIsDisabled(true)
         });
-    
+
+        let i = 60;
+
+        let int = setInterval(() => {
+            if (i <= 0) {
+                setIsDisabled(false);
+                clearInterval(int);
+            } else {
+                if (i !== 6) {
+                    setTime(i)
+                }
+                i--;
+            }
+        }, 1000);
+
+
+
+
+
         if (isSuccess) {
             messageApi.open({
                 type: 'success',
                 content: 'თქვენ წარმატებით გაიარეთ!',
             });
-            setTimeout(() => {
-                window.open('http://localhost:3000/dashboard?random=' + Math.floor(Math.random() * 1000) + 1);
-            },2000)
+            setOtherInp(true);
         } else {
             messageApi.error({
                 type: 'error',
                 content: 'ინფორმაცია არასწორია!',
             });
         }
+
     };
 
-    const forget = async() =>{
-        window.open('http://localhost:3000/forgetpassword?random=' + Math.floor(Math.random() * 100) + 1);
-    }
 
-    const register = () =>{
-        window.open('http://localhost:3000/register?random=' + Math.floor(Math.random() * 1000) + 1)
-    }
-  
+   
+
+
     return (
         <>
+
             <div className={styles.card}>
                 <div className={styles.loginCard}>
                     <h2>ფირალი</h2>
@@ -72,17 +151,17 @@ export default function Loggin() {
                     <div className={styles.loginCrdItem}>
                         <div className={styles.input}>
                             <p>იმეილი</p>
-                            <input className={styles.inputS} onChange={onchange} type="text" />
+                            <input className={styles.inputS}onChange={changePass}  type="text" />
                         </div>
                         <div className={styles.input}>
-                            <p>პაროლი</p>
-                            <input className={styles.inputS} onChange={onchange1} type="password" />
-                        </div>
-                        <div className={styles.forgetPassword}>
-                            <p onClick={forget}>დაგავიწყდა პაროლი?</p>
+                            {otherINp && <input onChange={onchange} className={styles.inputS} type='text'></input>}
                         </div>
                         <div className={styles.container}>
-                            <button onClick={success} className={styles.btn}>შეიყვანე ექაუნთი</button>
+                            <button disabled={isDisabled} onClick={success} className={styles.btn}>გაგზავნე კოდი    {time}</button>
+                            {contextHolder}
+                            {/* <Button type="primary" onClick={openNotification}>
+       დახმარება მჭირდება რაღაც ვერ გავაკეთე
+      </Button> */}
                             <div className={styles.continerGroup}>
                                 <svg width="501" height="18" viewBox="0 0 501 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <line x1="0.5" y1="8.5" x2="233.5" y2="8.5" stroke="#BFBFBF" stroke-linecap="round" />
@@ -120,9 +199,12 @@ export default function Loggin() {
                         </div>
                     </div>
                 </div>
-                <p onClick={register} className={styles.text}>არ გაქვთ ექაუნთი? <span className={styles.sp1}>დარექისტრირდი</span></p>
             </div>
             {contextHolder}
         </>
     )
-} 
+}
+
+function useMemo(arg0: () => { name: string; }, arg1: never[]) {
+    throw new Error("Function not implemented.");
+}

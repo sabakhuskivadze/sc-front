@@ -1,18 +1,24 @@
 "use client"
 import axios from "axios"
-import React, { use, useState } from "react"
+import React, { ChangeEvent, use, useState } from "react"
 import styles from './page.module.css'
 import { Button, message, Space } from 'antd';
 import router from "next/router";
-import Item from "antd/es/list/Item";
-
+import { Alert, Form, Input, Typography } from 'antd';
 export default function Loggin() {
     const [getMember, setGetmEMBER] = useState([])
     const [get, setGet] = useState('')
     const [get1, setGet1] = useState('')
     const [getName, setGetName] = useState();
     const [messageApi, contextHolder] = message.useMessage();
- 
+    axios.get('http://localhost:3001/Login')
+        .then((result) => {
+            setGetmEMBER(result.data)
+        })
+        .catch(() => {
+            console.log('error');
+
+        })
 
     const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setGet(e.target.value)
@@ -21,48 +27,49 @@ export default function Loggin() {
     const onchange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
         setGet1(e.target.value)
     }
-    axios.get('http://localhost:3001/Login')
-    .then((result) => {
-        setGetmEMBER(result.data)
-        return;
+
+   
+
+    const [form] = Form.useForm();
+
+    const [inp1, setInp1] = useState<string>();
+    const [inp2,setInp2] = useState <string>();
+    const [inp3, setInp3] = useState<string>();
+    const send1 = async(e:ChangeEvent<HTMLInputElement>) =>{
+        setInp1(e.target.value)
+    }
+
+    const send2 = async(e:ChangeEvent<HTMLInputElement>) =>{
+        setInp2(e.target.value)
+    }
+
+    const send3 = async(e:ChangeEvent<HTMLInputElement>) =>{
+        setInp3(e.target.value)
+    }
+
+
+ const success = () =>{
+   if(inp3 == inp2) {
+    fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: get,email:get,password:inp2 })
     })
-    .catch(() =>{
-       return  console.log('error');
-    })
-    
-    const success = () => {
-        let isSuccess = false;
-        getMember.forEach(item => {
-            if (get === item.email && get1 === item.password) {
-                isSuccess = true;
-                console.log(item.name);
-            }
+        .then((res) => {
+            return res.json();
+        })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.error(error.message);
+            return;
         });
-    
-        if (isSuccess) {
-            messageApi.open({
-                type: 'success',
-                content: 'თქვენ წარმატებით გაიარეთ!',
-            });
-            setTimeout(() => {
-                window.open('http://localhost:3000/dashboard?random=' + Math.floor(Math.random() * 1000) + 1);
-            },2000)
-        } else {
-            messageApi.error({
-                type: 'error',
-                content: 'ინფორმაცია არასწორია!',
-            });
-        }
-    };
+   }
+ }
 
-    const forget = async() =>{
-        window.open('http://localhost:3000/forgetpassword?random=' + Math.floor(Math.random() * 100) + 1);
-    }
-
-    const register = () =>{
-        window.open('http://localhost:3000/register?random=' + Math.floor(Math.random() * 1000) + 1)
-    }
-  
     return (
         <>
             <div className={styles.card}>
@@ -76,10 +83,40 @@ export default function Loggin() {
                         </div>
                         <div className={styles.input}>
                             <p>პაროლი</p>
-                            <input className={styles.inputS} onChange={onchange1} type="password" />
+                            <Form
+                            >
+
+
+                                <Form.Item   name="password" rules={[{ required: true }]}>
+                                    <Input onChange={send3}/>
+                                </Form.Item>
+
+                                <p>გაიმეორე პაროლი</p>
+                                <Form.Item
+                                    name="password2"
+                                    dependencies={['password']}
+                                    rules={[
+                                        {
+                                            required: true,
+                                        },
+                                        ({ getFieldValue }) => ({
+                                            validator(_, value) {
+                                                if (!value || getFieldValue('password') === value) {
+                                                    return Promise.resolve();
+                                                }
+                                                return Promise.reject(new Error('არასწორი პაროლია'));
+                                            },
+                                        }),
+                                    ]}
+                                >
+                                    <Input onChange={send2} />
+                                </Form.Item>
+
+                            </Form>
+
                         </div>
                         <div className={styles.forgetPassword}>
-                            <p onClick={forget}>დაგავიწყდა პაროლი?</p>
+                            <p>დაგავიწყდა პაროლი?</p>
                         </div>
                         <div className={styles.container}>
                             <button onClick={success} className={styles.btn}>შეიყვანე ექაუნთი</button>
@@ -120,7 +157,6 @@ export default function Loggin() {
                         </div>
                     </div>
                 </div>
-                <p onClick={register} className={styles.text}>არ გაქვთ ექაუნთი? <span className={styles.sp1}>დარექისტრირდი</span></p>
             </div>
             {contextHolder}
         </>
