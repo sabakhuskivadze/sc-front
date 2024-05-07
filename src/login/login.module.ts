@@ -11,7 +11,7 @@ import { jwtConstants } from './jwt.token.secret';
     MongooseModule.forFeature([{name: 'login', schema:loginSchema}]),
     JwtModule.register({
       secret: 'your_secret_key_here',
-      signOptions: { expiresIn: '24h' }, 
+      signOptions: { expiresIn: '24h' },
     }),
   ],
   controllers: [LoginController],
@@ -19,3 +19,4 @@ import { jwtConstants } from './jwt.token.secret';
 })
 export class LoginModule {}
    
+//ds
