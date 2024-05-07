@@ -6,7 +6,11 @@ import { Button, message, Space } from 'antd';
 
 
 export default function Loggin() {
-    const [getMember, setGetmEMBER] = useState([])
+    interface Member {
+        email: string;
+       password:string
+    }
+    const [getMember, setGetmEMBER] = useState<Member[]>([])
     const [get, setGet] = useState('')
     const [get1, setGet1] = useState('')
     const [getName, setGetName] = useState();

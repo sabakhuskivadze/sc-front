@@ -8,7 +8,11 @@ import { useState, ChangeEvent } from "react";
 
 
 export default function Forgetpassword() {
-    const [GetMember, setGetmEMBER] = useState([])
+    interface Member {
+        email: string;
+       
+    }
+    const [GetMember, setGetmEMBER] = useState<Member[]>([])
     const [Get, setGet] = useState('')
     const [get1, setGet1] = useState('')
     const [pas, setPass] = useState<string | number>('')
@@ -79,7 +83,6 @@ const [search,setSearch] = useState<string>()
         GetMember.forEach(item => {
             if (search === item.email) {
                 isSuccess = true;
-                console.log(item.name);
             }
             setIsDisabled(true)
         });
