@@ -34,7 +34,6 @@ export default function Loggin() {
         getMember.forEach(item => {
             if (get === item.email && get1 === item.password) {
                 isSuccess = true;
-                console.log(item.name);
             }
         });
     

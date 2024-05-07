@@ -1,19 +1,11 @@
 "use client"
 import axios from "axios"
-import React, { ChangeEvent, use, useState } from "react"
+import React, { ChangeEvent, useState } from "react"
 import styles from './page.module.css'
 import { message } from 'antd';
-import router from "next/router";
+
 import { Alert, Form, Input, Typography } from 'antd';
-import { time } from "console";
-import {
-    RadiusBottomleftOutlined,
-    RadiusBottomrightOutlined,
-    RadiusUpleftOutlined,
-    RadiusUprightOutlined,
-} from '@ant-design/icons';
-import { Button, Divider, notification, Space } from 'antd';
-import type { NotificationArgsProps } from 'antd';
+
 
 
 export default function forgetpassword() {
@@ -28,7 +20,7 @@ export default function forgetpassword() {
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const [buttonColor, setButtonColor] = useState('');
     const [time, setTime] = useState(Number)
-    const [api, contextHolder] = notification.useNotification();
+   
     const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setGet(e.target.value)
     }
@@ -66,11 +58,11 @@ const [search,setSearch] = useState<string>()
         setSearch(e.target.value);
     }
     const success = () => {
-        let url = 'http://localhost:3001/send-code/' + search
+        let url = 'https://sc-front-1.onrender.com/send-code/' + search
         console.log(url)
         
         let isSuccess = false;
-        axios.get('http://localhost:3001/Login')
+        axios.get('https://sc-front-1.onrender.com/login')
             .then((result) => {
                 setGetmEMBER(result.data);
                 return;
@@ -152,7 +144,7 @@ const [search,setSearch] = useState<string>()
                         </div>
                         <div className={styles.container}>
                             <button disabled={isDisabled} onClick={success} className={styles.btn}>გაგზავნე კოდი    {time}</button>
-                            {contextHolder}
+                      
                             {/* <Button type="primary" onClick={openNotification}>
        დახმარება მჭირდება რაღაც ვერ გავაკეთე
       </Button> */}
@@ -194,7 +186,7 @@ const [search,setSearch] = useState<string>()
                     </div>
                 </div>
             </div>
-            {contextHolder}
+
         </>
     )
 }
