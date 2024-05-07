@@ -9,7 +9,7 @@ class login{
     email?:string
     @Prop({required:true, type:"string"})
     password:string
-    @Prop({required:false, type:"boolean"})x
+    @Prop({required:false, type:"boolean"})
     isAdmin:boolean
     @Prop({required:false, type:"string"})
     token?:string

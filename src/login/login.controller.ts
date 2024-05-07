@@ -29,9 +29,15 @@ export class LoginController {
     @Get(':name')
     async searchUsers(@Param('name') name: string) {
         return await this.loginService.searhUsers(name)
+<<<<<<< HEAD
     } 
 
    
   //controlleri
+=======
+    }
+
+
+>>>>>>> fc343b6a99360f5d5405b717aaa378d3a6c6e797
 }
  
