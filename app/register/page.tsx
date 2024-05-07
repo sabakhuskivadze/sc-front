@@ -11,7 +11,7 @@ export default function Loggin() {
     const [get1, setGet1] = useState('')
     const [getName, setGetName] = useState();
     const [messageApi, contextHolder] = message.useMessage();
-    axios.get('http://localhost:3001/Login')
+    axios.get('https://sc-front-1.onrender.com/login')
         .then((result) => {
             setGetmEMBER(result.data)
         })
@@ -50,7 +50,7 @@ export default function Loggin() {
 
  const success = () =>{
    if(inp3 == inp2) {
-    fetch('http://localhost:3001/login', {
+    fetch('https://sc-front-1.onrender.com/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -21,16 +21,15 @@ export default function Loggin() {
     const onchange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
         setGet1(e.target.value)
     }
-    axios.get('http://localhost:3001/Login')
+    axios.get('https://sc-front-1.onrender.com/login')
     .then((result) => {
-        setGetmEMBER(result.data)
-        return;
+        setGetmEMBER(result.data)       
     })
     .catch(() =>{
        return  console.log('error');
     })
-    
     const success = () => {
+     
         let isSuccess = false;
         getMember.forEach(item => {
             if (get === item.email && get1 === item.password) {

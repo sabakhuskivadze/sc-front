@@ -18,9 +18,9 @@ import type { NotificationArgsProps } from 'antd';
 
 export default function forgetpassword() {
     const [getMember, setGetmEMBER] = useState([])
-    const [get, setGet] = useState('')
+    const [ get, setGet] = useState('')
     const [get1, setGet1] = useState('')
-    const [pas, setPass] = useState<string | number>('')// vlaue inputis rac iwereba
+    const [pas, setPass] = useState<string | number>('')
     const [getName, setGetName] = useState();
     const [otherINp, setOtherInp] = useState<boolean>(false)
     const [code1, setCode] = useState('')
@@ -34,7 +34,7 @@ export default function forgetpassword() {
     }
 
 
-
+ 
 
 
     const [form] = Form.useForm();
@@ -64,18 +64,11 @@ const [search,setSearch] = useState<string>()
         console.log(first)
         console.log(e.target.value);
         setSearch(e.target.value);
-        if (search == first) {
-            window.open('http://google.com')
-        }
-
-        console.log();
-        
-
     }
-    let url = 'http://localhost:3001/send-code/' + search
-console.log(url)
-
     const success = () => {
+        let url = 'http://localhost:3001/send-code/' + search
+        console.log(url)
+        
         let isSuccess = false;
         axios.get('http://localhost:3001/Login')
             .then((result) => {
@@ -91,18 +84,29 @@ console.log(url)
                 setCode(resCode.data);
             })
             .catch((error) => {
-                // Handle errors here
                 console.error('Error fetching code:', error);
             });
         
 
         getMember.forEach(item => {
-            if (get === item.email) {
+            if (search === item.email) {
                 isSuccess = true;
                 console.log(item.name);
             }
             setIsDisabled(true)
         });
+        if (isSuccess) {
+            messageApi.open({
+                type: 'success',
+                content: 'თქვენ წარმატებით გაიარეთ!',
+            });
+            setOtherInp(true);
+        } else {
+            messageApi.error({
+                type: 'error',
+                content: 'ინფორმაცია არასწორია!',
+            });
+        }
 
         let i = 60;
 
@@ -120,22 +124,12 @@ console.log(url)
 
 
 
-
-
-        if (isSuccess) {
-            messageApi.open({
-                type: 'success',
-                content: 'თქვენ წარმატებით გაიარეთ!',
-            });
-            setOtherInp(true);
-        } else {
-            messageApi.error({
-                type: 'error',
-                content: 'ინფორმაცია არასწორია!',
-            });
-        }
-
     };
+
+    if (get == code1){
+        console.log(code1);
+
+    }
 
 
    

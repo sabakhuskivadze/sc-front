@@ -442,6 +442,7 @@
 .upperTable{
     display: flex;
 }
+<<<<<<< HEAD
 .card{
     max-width: 685px;
     height: 938px;
@@ -537,6 +538,9 @@
     flex-direction: column;
     gap: 12px;
 }
+
+
+
 .tableNumeric{
     text-align: start;
 }
