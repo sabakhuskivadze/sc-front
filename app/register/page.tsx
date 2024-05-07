@@ -5,7 +5,7 @@ import styles from './page.module.css'
 import { Button, message, Space } from 'antd';
 import router from "next/router";
 import { Alert, Form, Input, Typography } from 'antd';
-export default function Loggin() {
+export default function Register() {
     const [getMember, setGetmEMBER] = useState([])
     const [get, setGet] = useState('')
     const [get1, setGet1] = useState('')

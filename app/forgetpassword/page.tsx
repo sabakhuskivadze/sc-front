@@ -7,7 +7,7 @@ import { useState, ChangeEvent } from "react";
 
 
 
-export default function forgetpassword() {
+export default function Forgetpassword() {
     const [GetMember, setGetmEMBER] = useState([])
     const [Get, setGet] = useState('')
     const [get1, setGet1] = useState('')
