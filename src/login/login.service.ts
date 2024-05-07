@@ -6,21 +6,13 @@ import { get } from 'http';
 import { Model } from 'mongoose';
 import { LoginDto } from 'src/dto/login.dto';
 import { LOGIN } from 'src/interface/interface.login';
-<<<<<<< HEAD
 import * as nodemailer from 'nodemailer'
-=======
->>>>>>> fc343b6a99360f5d5405b717aaa378d3a6c6e797
 @Injectable()
 export class LoginService {
     constructor(
         @InjectModel('login') private LoginModel: Model<LOGIN>,
-<<<<<<< HEAD
         private readonly jwtService: JwtService
     ) { }
-=======
-        private readonly  jwtService: JwtService
-    ) {}
->>>>>>> fc343b6a99360f5d5405b717aaa378d3a6c6e797
     async GetallMember() {
         return await this.LoginModel.find()
     }
@@ -29,7 +21,6 @@ export class LoginService {
             name: loginDto.name,
             email: loginDto.email,
             password: loginDto.password,
-<<<<<<< HEAD
             isAdmin: loginDto.isAdmin ? true : false,
             token: loginDto.token
         })  
@@ -43,30 +34,9 @@ export class LoginService {
  
     }
     
-=======
-            isAdmin: loginDto.isAdmin,
-            token:loginDto.token
-        })
-        const playload = {sub:loginDto.email, username:loginDto.name, pass:loginDto.password,isAdmin: loginDto.isAdmin}
-        return {
-            user: await newMember.save(),
-            loginDate: new Date(),
-            access_token: await this.jwtService.signAsync(playload)
-        };
-    }
-    async getAdmins(loginDto: LoginDto) {
-        if (loginDto.isAdmin == true) {
-            return await this.LoginModel.find()
-        }
-    }
->>>>>>> fc343b6a99360f5d5405b717aaa378d3a6c6e797
 
     async searhUsers(name: string) {
         return this.LoginModel.find({ name }).exec();
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> fc343b6a99360f5d5405b717aaa378d3a6c6e797
 }
