@@ -3,8 +3,7 @@ import axios from "axios"
 import React, { use, useState } from "react"
 import styles from './page.module.css'
 import { Button, message, Space } from 'antd';
-import router from "next/router";
-import Item from "antd/es/list/Item";
+
 
 export default function Loggin() {
     const [getMember, setGetmEMBER] = useState([])
@@ -23,11 +22,13 @@ export default function Loggin() {
     }
     axios.get('https://sc-front-1.onrender.com/login')
     .then((result) => {
-        setGetmEMBER(result.data)       
+        const getMember = result.data;
+        setGetmEMBER(getMember);
+
     })
-    .catch(() =>{
-       return  console.log('error');
-    })
+    .catch(() => {
+        console.log('error');
+    });
     const success = () => {
      
         let isSuccess = false;
@@ -60,6 +61,8 @@ export default function Loggin() {
     const register = () =>{
         window.open('http://localhost:3000/register?random=' + Math.floor(Math.random() * 1000) + 1)
     }
+
+  
   
     return (
         <>

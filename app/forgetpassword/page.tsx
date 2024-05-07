@@ -1,16 +1,17 @@
 "use client"
 import axios from "axios"
-import React, { ChangeEvent, useState } from "react"
+
 import styles from './page.module.css'
 import { message } from 'antd';
 
 import { Alert, Form, Input, Typography } from 'antd';
+import { useState, ChangeEvent } from "react";
 
 
 
 export default function forgetpassword() {
-    const [getMember, setGetmEMBER] = useState([])
-    const [ get, setGet] = useState('')
+    const [GetMember, setGetmEMBER] = useState([])
+    const [Get, setGet] = useState('')
     const [get1, setGet1] = useState('')
     const [pas, setPass] = useState<string | number>('')
     const [getName, setGetName] = useState();
@@ -80,7 +81,7 @@ const [search,setSearch] = useState<string>()
             });
         
 
-        getMember.forEach(item => {
+        GetMember.forEach(item => {
             if (search === item.email) {
                 isSuccess = true;
                 console.log(item.name);
@@ -118,7 +119,7 @@ const [search,setSearch] = useState<string>()
 
     };
 
-    if (get == code1){
+    if (Get == code1){
         console.log(code1);
 
     }
@@ -144,10 +145,6 @@ const [search,setSearch] = useState<string>()
                         </div>
                         <div className={styles.container}>
                             <button disabled={isDisabled} onClick={success} className={styles.btn}>გაგზავნე კოდი    {time}</button>
-                      
-                            {/* <Button type="primary" onClick={openNotification}>
-       დახმარება მჭირდება რაღაც ვერ გავაკეთე
-      </Button> */}
                             <div className={styles.continerGroup}>
                                 <svg width="501" height="18" viewBox="0 0 501 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <line x1="0.5" y1="8.5" x2="233.5" y2="8.5" stroke="#BFBFBF" stroke-linecap="round" />
@@ -189,8 +186,4 @@ const [search,setSearch] = useState<string>()
 
         </>
     )
-}
-
-function useMemo(arg0: () => { name: string; }, arg1: never[]) {
-    throw new Error("Function not implemented.");
 }
