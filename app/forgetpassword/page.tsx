@@ -3,8 +3,6 @@ import axios from "axios"
 
 import styles from './page.module.css'
 import { message } from 'antd';
-
-import { Alert, Form, Input, Typography } from 'antd';
 import { useState, ChangeEvent } from "react";
 
 
@@ -27,10 +25,7 @@ export default function forgetpassword() {
     }
 
 
- 
 
-
-    const [form] = Form.useForm();
 
     const [inp1, setInp1] = useState<string>();
     const [inp2, setInp2] = useState<string>();
