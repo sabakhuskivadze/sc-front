@@ -106,3 +106,19 @@
     color: rgba(252, 106, 0, 1);
     font-family: Noto Sans Georgian;
 }
+
+@media (max-width:600px){
+    .inputS{
+        width: 92%; 
+    }
+
+    .btn{
+        width: 100%;
+    }
+    .TextPhoto{
+        width: 100%;
+    }
+    .socialCard{
+        width: 100%;
+    }
+}
