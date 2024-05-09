@@ -93,3 +93,16 @@
     flex-direction: column;
     gap: 12px;
 }
+
+.text{
+    color:rgba(50, 50, 50, 1);
+    font-size: 14px;
+    position: relative;
+    top: 45px;
+    cursor: pointer;
+}
+
+.sp1{
+    color: rgba(252, 106, 0, 1);
+    font-family: Noto Sans Georgian;
+}
