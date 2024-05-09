@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { LoginService } from './login.service';
 import { LoginDto } from 'src/dto/login.dto';
 import { LOGIN } from 'src/interface/interface.login';
@@ -31,7 +31,14 @@ export class LoginController {
         return await this.loginService.searhUsers(name)
     } 
 
-   
-  //controlleri
+    @Delete(":email")
+    async deleteUsers(@Param('email') email:string) {
+        return await this.loginService.userDelete(email)
+    }
+
+    @Delete("name/:name")
+    async deleteUserName(@Param('name') name:string) {
+        return this.loginService.userNameDelete(name)
+    }
 }
  

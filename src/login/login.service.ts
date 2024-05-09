@@ -39,4 +39,12 @@ export class LoginService {
         return this.LoginModel.find({ name }).exec();
     }
 
+    async userDelete(email:string) {
+        return await this.LoginModel.findOneAndDelete({ email });
+    }
+
+    async userNameDelete(name:string) {
+        return await this.LoginModel.findOneAndDelete({name})
+    }
+
 }
