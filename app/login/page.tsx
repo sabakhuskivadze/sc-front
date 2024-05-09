@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import { Button, message, Space } from 'antd';
 import Register from "../register/page";
 import Forgetpassword from "../forgetpassword/page";
+import Dashboard from "../dashboard/page";
 
 
 export default function Loggin() {
@@ -36,6 +37,10 @@ export default function Loggin() {
     .catch(() => {
         console.log('error');
     });
+    const [login, SetLogin] = useState<boolean>(true);
+    const [register, setRegister] = useState<boolean>(false);
+    const [forget, setFotget] = useState<boolean>(false);
+    const [dashboard, setDashboard] = useState<boolean>(false)
     const success = () => {
      
         let isSuccess = false;
@@ -51,7 +56,8 @@ export default function Loggin() {
                 content: 'თქვენ წარმატებით გაიარეთ!',
             });
             setTimeout(() => {
-                window.open('http://localhost:3000/dashboard?random=' + Math.floor(Math.random() * 1000) + 1);
+                setDashboard(true)
+                SetLogin(false);
             },2000)
         } else {
             messageApi.error({
@@ -61,9 +67,6 @@ export default function Loggin() {
         }
     };
   
-    const [login, SetLogin] = useState<boolean>(true);
-    const [register, setRegister] = useState<boolean>(false);
-    const [forget, setFotget] = useState<boolean>(false);
     const forget1 = () =>{
         setFotget(true)
         SetLogin(false)
@@ -138,6 +141,7 @@ export default function Loggin() {
            }
            {register && <Register></Register>}
            {forget && <Forgetpassword></Forgetpassword>}
+           {dashboard && <Dashboard></Dashboard>}
             {contextHolder}
 
         </>
