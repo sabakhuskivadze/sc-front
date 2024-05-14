@@ -4,7 +4,7 @@ import { LoginService } from './login.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { loginSchema } from 'src/entity/login.schema';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './jwt.token.secret';
+
 
 @Module({
   imports:[

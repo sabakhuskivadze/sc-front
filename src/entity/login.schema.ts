@@ -1,8 +1,12 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import {PrimaryGeneratedColumn} from "typeorm";
+
 
 
 @Schema()
-class login{
+export class login{
+    @Prop({required:true, type:"number"})
+    id:number
     @Prop({required:true, type:"string"})
     name:string
     @Prop({required:true, type:"string"})
